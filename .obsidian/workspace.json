@@ -1,0 +1,168 @@
+{
+  "main": {
+    "id": "85753eb2eecf4ed8",
+    "type": "split",
+    "children": [
+      {
+        "id": "5bb9047d2ea7cbd6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3618d7728f4569ae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ba47c7939b457849",
+    "type": "split",
+    "children": [
+      {
+        "id": "54e5237036884cdc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "022fed94ab75f089",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "5f14494153ca592d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "9ae1213536f374de",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "678b13c4c896e0b7",
+    "type": "split",
+    "children": [
+      {
+        "id": "1e75ed28c67086be",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "042241ae342ed455",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "991bbac99401b90e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a0de6e732ac9f69c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "bdd859ea3b69d77d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "3618d7728f4569ae",
+  "lastOpenFiles": [
+    "Pasted image 20231230170908.png",
+    "Pasted image 20231230163311.png",
+    "Pasted image 20231230162809.png",
+    "Pasted image 20231230151231.png",
+    "Pasted image 20231228172821.png",
+    "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+    "Pasted image 20231230150508.png",
+    "Pasted image 20231230150306.png",
+    "Pasted image 20231228172809.png",
+    "Pasted image 20231228171919.png",
+    "Pasted image 20231228165423.png",
+    "Pasted image 20231228164713.png",
+    "Welcome.md",
+    "Cisco Rev-Up"
+  ]
+}
