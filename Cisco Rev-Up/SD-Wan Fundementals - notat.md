@@ -183,7 +183,7 @@ vBond port-hopper ALDRI.  Alltid 12346.
 	11. Joins overlay. 
 
 
-> [!NOTE] Note
+> [!NOTE]
 > ZTP feiler dersom vManage ikkje har en device config template for WAN-Edge. 
 
 
