@@ -65,7 +65,7 @@ Permanent DTLS-tunell dersom two-way auth er suksessfull.
 Dersom eine devicen registrerer auth-failure, noden som registrerer feilen vil rive ned tilkoblinga. 
 
 IP eller DNS-name for vBond blir lagt inn på vSmart manuelt ved provisjonering av vSmart node. 
-![[bilde3.png]]
+![](/bilde3.png)
 
 ##### vSmart autentiserer vBond 
 	1.vBond sender cert signert av root CA til vSmart. 
@@ -80,7 +80,7 @@ IP eller DNS-name for vBond blir lagt inn på vSmart manuelt ved provisjonering 
 	4. vBond verifisert att cert er signert av korrekt root-CA. 
 
 #### vSmart <-> vSmart authentication. 
-![[bilde4.png]]
+![](/bilde4.png)
 
 Miljø med fleire vSmart-controllera må autentisere kvarandre for å etablere full-mesh DTLS-tuneller.  Trengs for å synce OMP-ruter. 
 vSmart lærer ip-adressa til andre vSmart-noder frå vBond. 
@@ -92,12 +92,12 @@ vSmart lærer ip-adressa til andre vSmart-noder frå vBond.
 	5. vSmart2 har autentisert vSmart1. One-Way DTLS-connection oppe. 
 	6. vSmart1 autentiserer vSmart2 gjennom same stega. 
 
-![[bilde5.png]]
+![](/bilde5.png)
 
 
 #### Establish WAN-Edge router Identity 
 
-![[bilde6.png]]
+![](/bilde6.png)
 
 XE-Wan Edge - Fysiske Cisco bokser. 
 Viptela vEdge - Physical Viptela (vEdge2000 / 5000)
@@ -107,7 +107,7 @@ Virtual Wan Edge - ASR1002-X, ISRv, CSR1000v, Cat8000v, vEdge Cloud.
 Unik ID er Chassis-ID og Sertifikat Serienummer (SUDI-Cert).  Cert er lagra på ein trusted chip under produksjon (ACT2-chip). 
 Cert helde public-key,  private-key er "embedded" i ACT2-chip.  Cisco root CA har signert cert. 
 ACT2 er tamper-proof.  Private Key kan ikkje hentast ut frå ACT2-chip.  Ved brute-force vil chippen feile og all tilgang til ruteren er disabled. 
-![[bilde8.png]]
+![](/bilde8.png)
 
 
 **Viptela vEdge (physical router)** 
@@ -116,7 +116,7 @@ Cert lagra i TPM chip. Installert under produksjon.
 Cert signert av AVNET root CA. 
 Control-Plane devices truster AVNET. 
 vEdge har Cisco Root CA installert og truster Cisco chain. For å validere Control-Plane Devices (vbond/vSmart/vManage).  Kan erstattast med enterprise CA. 
-![[bilde9.png]]
+![](/bilde9.png)
 
 **Virtual WAN Edge**
 Får eit signert cert frå vManage. 
@@ -142,7 +142,7 @@ vSmart og vManage trenger generelt ikkje port-hopping. Difor mostly not used.
 vBond port-hopper ALDRI.  Alltid 12346. 
 
 #### DDoS protection 
-![[bilde10.png]]
+![](/bilde10.png)
 
 
 #### Summary 
@@ -170,7 +170,7 @@ vBond port-hopper ALDRI.  Alltid 12346.
 - Verify controll connections and certs. 
 
 #### ZTP 
-![[bilde11.png]]
+![](/bilde11.png)
 
 	3.Resolve ztp.viptela.com.  Får IP-adresse til Cisco ZTP-Server. 
 	4. Connect to ZTP-Server som verifiserer WAN-Edge. Får IP til vBond. 
@@ -189,6 +189,6 @@ vBond port-hopper ALDRI.  Alltid 12346.
 
 #### Configure WAN-Edge routers
 
-![[bilde12.png]]
+![](/bilde12.png)
 
 
