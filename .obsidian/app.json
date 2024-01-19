@@ -1,5 +1,6 @@
 {
   "spellcheck": false,
   "alwaysUpdateLinks": true,
-  "useMarkdownLinks": true
+  "useMarkdownLinks": true,
+  "attachmentFolderPath": "cisco-rev-up/img"
 }

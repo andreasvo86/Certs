@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+                "file": "cisco-rev-up/SD-Wan Fundementals - notat.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+                "file": "cisco-rev-up/SD-Wan Fundementals - notat.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+                "file": "cisco-rev-up/SD-Wan Fundementals - notat.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md"
+                "file": "cisco-rev-up/SD-Wan Fundementals - notat.md"
               }
             }
           }
@@ -146,44 +146,45 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a6195a23692c22a9",
+  "active": "022fed94ab75f089",
   "lastOpenFiles": [
-    "Screenshot from 2024-01-19 18-27-17.png",
     "Test-canvas 1.canvas",
     "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
-    "bilde4.png",
-    "bilde3.png",
-    "bilde2.png",
+    "cisco-rev-up/SD-Wan Fundementals - notat.md",
+    "Untitled.canvas",
+    "Cisco Rev-Up",
+    "cisco-rev-up/img/bilde9.png",
+    "cisco-rev-up/img/bilde8.png",
+    "cisco-rev-up/img/bilde7.png",
+    "cisco-rev-up/img/bilde6.png",
+    "cisco-rev-up/img/bilde5.png",
+    "cisco-rev-up/img/bilde4.png",
+    "cisco-rev-up/img/bilde3.png",
+    "cisco-rev-up/img/bilde2.png",
+    "cisco-rev-up/img/bilde12.png",
+    "cisco-rev-up/img/bilde11.png",
+    "cisco-rev-up/img",
+    "cisco-rev-up",
+    "Coscp Rev-Up/img",
+    "Coscp Rev-Up/SD-Wan Fundementals - notat.md",
+    "Coscp Rev-Up",
+    "cisco-rev-up/img",
+    "cisco-rev-up",
     "zscaler/zscaler/Zscaler for Users - Essentials/Zscaler for Users - Essentials (EDU-200).md",
-    "zscaler/zscaler/Zscaler for Users - Essentials/ZTE - Functional Diagram.png",
     "zscaler/zscaler/Zscaler Zero Trust Architect/ztca-notes.md",
-    "zscaler/zscaler/Zscaler Zero Trust Architect/legacy-architecture-vs-zta.png",
-    "zscaler/zscaler/Zscaler Zero Trust Architect/ZTA-Sections-and-steps.png",
-    "zscaler/zscaler/Zscaler Zero Trust Architect/ZTA-Flow.png",
-    "zscaler/zscaler/Zscaler Delivery Specialist/traffic-forwarding-Reference Comparison Chart.jpg",
     "zscaler/zscaler/Zscaler Delivery Specialist/ZIA-DeliverySpecialist.md",
     "zscaler/backup/Zscaler for Users - Essentials/Zscaler for Users - Essentials (EDU-200).md",
     "zscaler/backup/Zscaler Zero Trust Architect/ztca-notes.md",
-    "zscaler/backup/Zscaler Zero Trust Architect/ZTE - Functional Diagram.png",
-    "zscaler/backup/Zscaler Delivery Specialist/traffic-forwarding-Reference Comparison Chart.jpg",
     "zscaler/backup/Zscaler Delivery Specialist/ZIA-DeliverySpecialist.md",
     "zscaler/zscaler/Zscaler for Users - Essentials",
     "zscaler/zscaler/Zscaler for Users - Advanced",
     "zscaler/zscaler/Zscaler Zero Trust Architect",
-    "zscaler/zscaler/Zscaler Delivery Specialist",
     "zscaler/zscaler/README.md",
-    "zscaler/backup/Zscaler for Users - Essentials",
-    "zscaler/backup/Zscaler for Users - Advanced",
-    "zscaler/backup/Zscaler Zero Trust Architect",
-    "zscaler/backup/Zscaler Delivery Specialist",
     "zscaler/backup/README.md",
     "zscaler/ztca-notes.md",
-    "zscaler/zscaler",
-    "zscaler/backup",
     "zscaler/Zscaler for Users - Essentials (EDU-200).md",
     "zscaler/ZIA-DeliverySpecialist.md",
     "Untitled.md",
-    "Untitled.canvas",
     "Welcome.md"
   ]
 }
