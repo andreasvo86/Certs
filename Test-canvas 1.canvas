@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"b068553486e8e5a1","type":"text","text":"Teste Canvas","x":-854,"y":-671,"width":250,"height":60,"color":"3"},
+		{"id":"eb52c16b25f97dbe","type":"file","file":"bilde1.png","x":-1180,"y":920,"width":791,"height":238},
+		{"id":"2eeb68f3f7ec354e","type":"file","file":"Cisco Rev-Up/SD-Wan Fundementals - notat.md","x":-1000,"y":-400,"width":740,"height":680},
+		{"id":"9f60ccb565e093da","type":"file","file":"Cisco Rev-Up/SD-Wan Fundementals - notat.md","subpath":"#vSmart <-> vSmart authentication.","x":-23,"y":498,"width":1123,"height":882},
+		{"id":"74a8dca512c425fd","type":"file","file":"Cisco Rev-Up/SD-Wan Fundementals - notat.md","subpath":"#vSmart <-> vBond authentication","x":24,"y":-460,"width":1029,"height":639},
+		{"id":"11c11a830abf9059","type":"file","file":"Cisco Rev-Up/SD-Wan Fundementals - notat.md","subpath":"#vSmart autentiserer vBond","x":1280,"y":-620,"width":860,"height":320},
+		{"id":"e14b12f866190f07","type":"file","file":"Cisco Rev-Up/SD-Wan Fundementals - notat.md","subpath":"#vBond autentiserer vSmart","x":1290,"y":-180,"width":840,"height":400}
+	],
+	"edges":[
+		{"id":"f2c3f6c17c783010","fromNode":"2eeb68f3f7ec354e","fromSide":"right","toNode":"74a8dca512c425fd","toSide":"left"},
+		{"id":"1c2f5e1504652eef","fromNode":"74a8dca512c425fd","fromSide":"right","toNode":"11c11a830abf9059","toSide":"left"},
+		{"id":"7bbcdfffd82e8b32","fromNode":"74a8dca512c425fd","fromSide":"right","toNode":"e14b12f866190f07","toSide":"left"},
+		{"id":"287821271ca99d43","fromNode":"2eeb68f3f7ec354e","fromSide":"right","toNode":"9f60ccb565e093da","toSide":"left"}
+	]
+}

@@ -4,18 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "5bb9047d2ea7cbd6",
+        "id": "8363d72995228ca6",
         "type": "tabs",
         "children": [
           {
-            "id": "3618d7728f4569ae",
+            "id": "a6195a23692c22a9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
-                "mode": "source",
-                "source": false
+                "file": "Test-canvas 1.canvas",
+                "viewState": {
+                  "x": 480,
+                  "y": 354.5,
+                  "zoom": -0.7634899109536126
+                }
               }
             }
           }
@@ -69,8 +72,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "678b13c4c896e0b7",
@@ -86,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+                "file": "Test-canvas 1.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +105,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+                "file": "Test-canvas 1.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,12 +128,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md"
+                "file": "Test-canvas 1.canvas"
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -148,21 +149,43 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3618d7728f4569ae",
+  "active": "a6195a23692c22a9",
   "lastOpenFiles": [
-    "Pasted image 20231230170908.png",
-    "Pasted image 20231230163311.png",
-    "Pasted image 20231230162809.png",
-    "Pasted image 20231230151231.png",
-    "Pasted image 20231228172821.png",
     "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
-    "Pasted image 20231230150508.png",
-    "Pasted image 20231230150306.png",
-    "Pasted image 20231228172809.png",
-    "Pasted image 20231228171919.png",
-    "Pasted image 20231228165423.png",
-    "Pasted image 20231228164713.png",
-    "Welcome.md",
-    "Cisco Rev-Up"
+    "Test-canvas 1.canvas",
+    "zscaler/zscaler/Zscaler for Users - Essentials/Zscaler for Users - Essentials (EDU-200).md",
+    "zscaler/zscaler/Zscaler for Users - Essentials/ZTE - Functional Diagram.png",
+    "zscaler/zscaler/Zscaler Zero Trust Architect/ztca-notes.md",
+    "zscaler/zscaler/Zscaler Zero Trust Architect/legacy-architecture-vs-zta.png",
+    "zscaler/zscaler/Zscaler Zero Trust Architect/ZTA-Sections-and-steps.png",
+    "zscaler/zscaler/Zscaler Zero Trust Architect/ZTA-Flow.png",
+    "zscaler/zscaler/Zscaler Delivery Specialist/traffic-forwarding-Reference Comparison Chart.jpg",
+    "zscaler/zscaler/Zscaler Delivery Specialist/ZIA-DeliverySpecialist.md",
+    "zscaler/backup/Zscaler for Users - Essentials/Zscaler for Users - Essentials (EDU-200).md",
+    "zscaler/backup/Zscaler Zero Trust Architect/ztca-notes.md",
+    "zscaler/backup/Zscaler Zero Trust Architect/ZTE - Functional Diagram.png",
+    "zscaler/backup/Zscaler Delivery Specialist/traffic-forwarding-Reference Comparison Chart.jpg",
+    "zscaler/backup/Zscaler Delivery Specialist/ZIA-DeliverySpecialist.md",
+    "zscaler/zscaler/Zscaler for Users - Essentials",
+    "zscaler/zscaler/Zscaler for Users - Advanced",
+    "zscaler/zscaler/Zscaler Zero Trust Architect",
+    "zscaler/zscaler/Zscaler Delivery Specialist",
+    "zscaler/zscaler/README.md",
+    "zscaler/backup/Zscaler for Users - Essentials",
+    "zscaler/backup/Zscaler for Users - Advanced",
+    "zscaler/backup/Zscaler Zero Trust Architect",
+    "zscaler/backup/Zscaler Delivery Specialist",
+    "zscaler/backup/README.md",
+    "zscaler/ztca-notes.md",
+    "zscaler/zscaler",
+    "zscaler/traffic-forwarding-Reference Comparison Chart.jpg",
+    "zscaler/backup",
+    "zscaler/Zscaler for Users - Essentials (EDU-200).md",
+    "zscaler/ZTE - Functional Diagram.png",
+    "zscaler/ZIA-DeliverySpecialist.md",
+    "Untitled.md",
+    "Untitled.canvas",
+    "Pasted image 20231230170908.png",
+    "Welcome.md"
   ]
 }
