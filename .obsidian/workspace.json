@@ -11,14 +11,11 @@
             "id": "a6195a23692c22a9",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Test-canvas 1.canvas",
-                "viewState": {
-                  "x": 480,
-                  "y": 354.5,
-                  "zoom": -0.7634899109536126
-                }
+                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -88,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Test-canvas 1.canvas",
+                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Test-canvas 1.canvas",
+                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Test-canvas 1.canvas"
+                "file": "Cisco Rev-Up/SD-Wan Fundementals - notat.md"
               }
             }
           }
@@ -151,7 +148,10 @@
   },
   "active": "a6195a23692c22a9",
   "lastOpenFiles": [
+    "bilde4.png",
+    "bilde3.png",
     "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+    "bilde2.png",
     "Test-canvas 1.canvas",
     "zscaler/zscaler/Zscaler for Users - Essentials/Zscaler for Users - Essentials (EDU-200).md",
     "zscaler/zscaler/Zscaler for Users - Essentials/ZTE - Functional Diagram.png",
@@ -181,11 +181,9 @@
     "zscaler/traffic-forwarding-Reference Comparison Chart.jpg",
     "zscaler/backup",
     "zscaler/Zscaler for Users - Essentials (EDU-200).md",
-    "zscaler/ZTE - Functional Diagram.png",
     "zscaler/ZIA-DeliverySpecialist.md",
     "Untitled.md",
     "Untitled.canvas",
-    "Pasted image 20231230170908.png",
     "Welcome.md"
   ]
 }
