@@ -36,7 +36,7 @@ Wan-Edge HW routers bruker ZTP / Cisco PnP.
 Alle devices bruker vBond for autentisering og å sette opp kryptert kanal mellom kvarandre.  Bruker kanalen til å validere og autentisere kvarandre for å få eit full-mesh overlay network. 
 Devices laster ned config frå vManage. 
 
-![[Pasted image 20231228161326.png]]
+![[/Pasted image 20231228161326.png]]
 
 
 Automatisk validering og autentisering krever att vBond og vSmart kjenner til serienummer og chassis-number for devices som skal delta i nettverket. 
