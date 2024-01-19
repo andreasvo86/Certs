@@ -47,7 +47,7 @@ Org-name er  inkludert i config-fila til alle devices og i cert for alle devices
 
 #### Secure Control Channel - Control Elements
 
-![](bilde2.png)
+![](/bilde2.png)
 
 vBond <-> vSmart session blir initiert av vSmart over DTLS.  Begge devices genererer ein RSA key pair ved boot som blir brukt for DTLS-kryptering. 
 
