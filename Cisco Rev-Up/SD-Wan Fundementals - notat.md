@@ -10,7 +10,7 @@
 		- [WAN-Edge <-> vBond authentication.](#WAN-Edge%20%3C-%3E%20vBond%20authentication.)
 
 
-## SD-Wan network deployment
+# SD-Wan network deployment
 Course mål: 
 - Describe secure control plane operations
 - Deploy a WAN Edge device and verify control plane operation
@@ -18,13 +18,13 @@ Course mål:
 - Identify the various services provided by cloud deployments
 - List the high-availability redundancy options
 
-### Secure control plane Operations
+## Secure control plane Operations
 
 vBond - Orchestrator (Autentisering av alle komponenter)
 vSmart - Controller (Control plane)
 vManage - Management plane
 
-#### Fabric bring up - ZT-Model
+### Fabric bring up - ZT-Model
 vBond gjer automatisk autentisering av alle WAN-Edge routers.  SD-WAN devices autentiserer seg sjølv automatisk når
 dei blir med i overlay nettverket. 
 
@@ -45,7 +45,7 @@ Serial-number file må lastast opp til vManage manuelt.
 Alle devices må også vere konfigurert med same organization name.  Org-Name settast på vManage (case-sensitiv). 
 Org-name er  inkludert i config-fila til alle devices og i cert for alle devices.  Cert er laga enten av Cisco eller ein Org-CA. 
 
-#### Secure Control Channel - Control Elements
+### Secure Control Channel - Control Elements
 
 ![](/bilde2.png)
 
@@ -58,7 +58,7 @@ Etter bidirectional authentication er ferdig blir DTLS-connection endra frå ein
 vBond har ein permanent DTLS-connection til kvar vSmart controller i topologien.  Desse tunellane er ein del av Control Plane,  ingen Data-Trafikk over dei. 
 Når alle vSmart har registrert seg mot vBond er dei klar for å validere / Autentisere WAN-Edge routera. 
 
-#### vSmart <-> vBond authentication 
+### vSmart <-> vBond authentication 
 
 Two-Way auth.  Skjer i paralell  
 Permanent DTLS-tunell dersom two-way auth er suksessfull. 
@@ -67,19 +67,19 @@ Dersom eine devicen registrerer auth-failure, noden som registrerer feilen vil r
 IP eller DNS-name for vBond blir lagt inn på vSmart manuelt ved provisjonering av vSmart node. 
 ![](/bilde3.png)
 
-##### vSmart autentiserer vBond 
+#### vSmart autentiserer vBond 
 	1.vBond sender cert signert av root CA til vSmart. 
 	2. vBond sender fil med autoriserte wan-edge serienummer til vSmart
 	3. vSmart henter org-name frå tilsendt Cert, og samenlikne med konfigurert org-name. 
 	4. vSmart verifiserer att cert er signert av korrekt root-ca. 
 
-##### vBond autentiserer vSmart 
+#### vBond autentiserer vSmart 
 	1.vSmart sender signert cert til vBond. 
 	2. vBond henter serienummer frå cert. Matcher det mot authorized serialnumber file. 
 	3. vBond henter org-name frå Cert og matcher mot konfigurert org-name. 
 	4. vBond verifisert att cert er signert av korrekt root-CA. 
 
-#### vSmart <-> vSmart authentication. 
+### vSmart <-> vSmart authentication. 
 ![](/bilde4.png)
 
 Miljø med fleire vSmart-controllera må autentisere kvarandre for å etablere full-mesh DTLS-tuneller.  Trengs for å synce OMP-ruter. 
@@ -95,7 +95,7 @@ vSmart lærer ip-adressa til andre vSmart-noder frå vBond.
 ![](/bilde5.png)
 
 
-#### Establish WAN-Edge router Identity 
+### Establish WAN-Edge router Identity 
 
 ![](/bilde6.png)
 
@@ -125,9 +125,9 @@ OTP/Token blir gitt til Virtual WAN-Edge under VM-deployment eller via CLI.
 Når WAN-Edge blir aktivert vil vManage signere sertifikatet og installere det i routeren. 
 Cisco/Symantec root CA validerer control-plane devices.  Kan erstattast med Enterprise CA. 
 
-#### WAN-Edge <-> vBond authentication. 
+### WAN-Edge <-> vBond authentication. 
 
-#### Control Connection ports
+### Control Connection ports
 Base port: 12346 
 Port-Offset: 0 
 Port-Hopping: 
@@ -141,11 +141,11 @@ WAN-Edge bruker port-hopping mot vManage, vBond, vSmart.  Kan også manuelt star
 vSmart og vManage trenger generelt ikkje port-hopping. Difor mostly not used. 
 vBond port-hopper ALDRI.  Alltid 12346. 
 
-#### DDoS protection 
+### DDoS protection 
 ![](/bilde10.png)
 
 
-#### Summary 
+### Summary 
 - ZTE tillater kun autentiserte og autoriserte devices å bli med i SD-WAN overlay nettverk.   
 - Controllers gjer multual authentication.  
 - vSmart controller gjer authentication på alle WAN-Edges før dei får sende data over nettverket.  
@@ -162,14 +162,14 @@ vBond port-hopper ALDRI.  Alltid 12346.
 ------------------------------------
 
 
-### Secure Device Onboarding 
+## Secure Device Onboarding 
 
 - Explain ZTP prosess
 - Configure WAN-Edge from CLI 
 - Register WAN-Edge in vManage. 
 - Verify controll connections and certs. 
 
-#### ZTP 
+### ZTP 
 ![](/bilde11.png)
 
 	3.Resolve ztp.viptela.com.  Får IP-adresse til Cisco ZTP-Server. 
@@ -187,7 +187,7 @@ vBond port-hopper ALDRI.  Alltid 12346.
 > ZTP feiler dersom vManage ikkje har en device config template for WAN-Edge. 
 
 
-#### Configure WAN-Edge routers
+### Configure WAN-Edge routers
 
 ![](/bilde12.png)
 
