@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8363d72995228ca6",
+        "id": "c1cf23f3fddfa39e",
         "type": "tabs",
         "children": [
           {
-            "id": "a6195a23692c22a9",
+            "id": "0e93877640ed2370",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "b92675653f580eee",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Fortinet Fundementals/FSF - Fortinet Security Fundementals..md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cisco-rev-up/SD-Wan Fundementals - notat.md",
+                "file": "Fortinet Fundementals/FSF - Fortinet Security Fundementals..md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cisco-rev-up/SD-Wan Fundementals - notat.md",
+                "file": "Fortinet Fundementals/FSF - Fortinet Security Fundementals..md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,11 +138,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cisco-rev-up/SD-Wan Fundementals - notat.md"
+                "file": "Fortinet Fundementals/FSF - Fortinet Security Fundementals..md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -146,12 +160,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a6195a23692c22a9",
+  "active": "b92675653f580eee",
   "lastOpenFiles": [
     "Test-canvas 1.canvas",
+    "Fortinet Fundementals/FSF - Fortinet Security Fundementals..md",
+    "link-test.md",
     "cisco-rev-up/SD-Wan Fundementals - notat.md",
-    "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
+    "Fortinet Fundementals",
     "Untitled.canvas",
+    "Untitled 1.canvas",
+    "Cisco Rev-Up/SD-Wan Fundementals - notat.md",
     "Cisco Rev-Up",
     "cisco-rev-up/img/bilde9.png",
     "cisco-rev-up/img/bilde8.png",
@@ -178,13 +196,11 @@
     "zscaler/backup/Zscaler Delivery Specialist/ZIA-DeliverySpecialist.md",
     "zscaler/zscaler/Zscaler for Users - Essentials",
     "zscaler/zscaler/Zscaler for Users - Advanced",
-    "zscaler/zscaler/Zscaler Zero Trust Architect",
     "zscaler/zscaler/README.md",
     "zscaler/backup/README.md",
     "zscaler/ztca-notes.md",
     "zscaler/Zscaler for Users - Essentials (EDU-200).md",
     "zscaler/ZIA-DeliverySpecialist.md",
-    "Untitled.md",
     "Welcome.md"
   ]
 }

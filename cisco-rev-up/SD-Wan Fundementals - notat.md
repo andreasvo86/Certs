@@ -1,3 +1,7 @@
+---
+tags:
+  - notat
+---
 - [SD-Wan network deployment](#SD-Wan%20network%20deployment)
 	- [Secure control plane Operations](#Secure%20control%20plane%20Operations)
 		- [Fabric bring up - ZT-Model](#Fabric%20bring%20up%20-%20ZT-Model)
