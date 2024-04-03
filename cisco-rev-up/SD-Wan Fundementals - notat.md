@@ -196,3 +196,104 @@ vBond port-hopper ALDRI.  Alltid 12346.
 ![](/cisco-rev-up/img/bilde12.png)
 
 
+#### Avtivating a Virtual WAN Edge 
+
+Følgande må settast opp manuelt på WAN Edge først: 
+- System IP
+- Site ID
+- Organization Name
+- vBond IP Address
+- Hostname
+++ Network connectivity til Transport network.  (Wan-interface og tilknytt tunell-interface)
+
+```
+# Minimal config for C8000v
+Catalyst8000v# **config-transaction**
+Catalyst8000v(config)# **hostname Branch1**
+Catalyst8000v(config)# **system**
+Catalyst8000v(config-system)# **system-ip 172.27.0.12**
+Catalyst8000v(config-system)# **site-id 20**
+Catalyst8000v(config-system)# **organization-name "Cisco-LearningAtCisco - 20998"**
+Catalyst8000v(config-system)# **vbond 10.2.6.2**
+Catalyst8000v(config-system)# **commit**
+
+Branch1(config)# **interface GigabitEthernet 1**
+Branch1(config-int)# **ip address 10.2.8.2/24**
+Branch1(config-int)# **no shutdown**
+Branch1(config-int)# **exit**
+Branch1(config)# **interface Tunnel1**
+Branch1(config-int)# **ip unnumbered GigabitEthernet 1**
+Branch1(config-int)# **tunnel source GigabitEthernet 1**
+Branch1(config-int)# **tunnel mode sdwan**
+Branch1(config-int)# **no shut**
+Branch1(config-int)# **exit**
+Branch1(config)# **sdwan**
+Branch1(config-sdwan)# **interface GigabitEthernet 1**
+Branch1(config-interface-GigabitEthernet1)# **tunnel-interface allow-service all**
+Branch1(config-tunnel-interface)# **encapsulation ipsec**
+Branch1(config-tunnel-interface)# **color mpls**
+Branch1(config-tunnel-interface)# **exit**
+Branch1(config)# **ip route 0.0.0.0 0.0.0.0 10.2.8.1**
+Branch1(config)# **commit**
+```
+
+Cisco vManage uses the system IP address to identify the device so that you can download the full configuration to the device.
+
+**Note on colour**
+```
+Branch1(config-tunnel-interface)# **color mpls**
+#Configure a color for the tunnel to identify the type of WAN transport.
+#You can use the default color (**default**) but you can also # **mpls** or **metro-ethernet**, depending on the actual WAN transport.'
+
+# here are two types of colors: private and public. Private colors are mpls, #metro-ethernet, private1 through private6. Public colors include biz-internet, #public-internet, gold, lte, 3g.
+
+
+```
+
+Activate the Virtual WAN Edge Router using chassis number and one-time password/Token 
+```
+Catalyst8000v# Request platform software sdwan vedge_cloud activate chassis-number *chassis-number* token *token*
+```
+
+Cisco vManage authenticates the Virtual WAN Edge router and install the signed certs on the router.  Sjå virtual wan edge lenge oppe. 
+
+```
+show sdwan control local-properties 
+# certificate-status - Installed  # Bør vere statusen på denne linja. 
+
+token: invalid = Er ein OK status så lenge certificate-status = installed. 
+Token kun bruke ved aktivering. 
+```
+
+```
+show sdwan control connections
+= Control connection on WAN Edge Router 
+
+show control connections
+= Control connections on vSmart. 
+```
+
+```
+show sdwan certificate installed 
+# Viser dekoded CSR på vBond, vManage eller vSmart. 
+# Dette er CRS som er signert av root CA. 
+
+show sdwan certificate root-ca-cert
+# Display root cert installed on SD-WAN Device. 
+
+Show sdwan certificate serial 
+# Display serial number for a vBond or vSmart. 
+# Display serial number and chassis number for WAN Edge router
+
+Show sdwan certificate signing-reqquest 
+# Display CSR installed on vSmart or vBond. Dette er CSR som er signert av devicens private key. 
+
+show sdwan certificate validity 
+# display kor lenge cert er valid. Kun på vSmart og vBond. 
+
+```
+
+
+## Secure data plane operations
+
+![](/cisco-rev-up/img/bilde13.png)
