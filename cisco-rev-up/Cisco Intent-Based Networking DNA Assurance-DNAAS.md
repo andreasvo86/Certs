@@ -1,5 +1,8 @@
 # Monitoring Health and Performance with Cisco DNA Center Assurance
 
+
+[TOC]
+
 ## Introduction - Learning goals
 
 You will explore how to use Cisco DNA Center Assurance features to monitor the following:
@@ -9,10 +12,6 @@ You will explore how to use Cisco DNA Center Assurance features to monitor the f
 - The **performance** of networked **applications**.
 
 You will learn **how applications are recognized and classified** on the network and how to use Cisco DNA Assurance features to **monitor** and **trend** the **health and performance of applications** and detect potential issues.
-
-
-
-[TOC]
 
 ## Cisco DNA Center Assurance Functional Components
 
