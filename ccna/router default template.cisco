@@ -1,0 +1,77 @@
+! router default template 
+
+hostname middle-2-ro
+enable secret 123
+username avo secret 1234
+ip domain-name lab.org
+crypto key generate rsa
+2048
+ip ssh version 2
+line con 0 
+    password 123
+    logging synchronous
+line vty 0 4
+    logging synchronous
+    login local 
+    transport input ssh 
+
+
+interface Loopback0
+description ospf
+ip address 10.10.100.10 255.255.255.255
+
+router ospf 1
+router-id 10.10.100.10
+passive-interface FastEthernet0/0
+network 10.10.100.10 0.0.0.0 area 0
+
+
+
+-------------------------------------------------------------
+!lab-router exapmle config,  show running-config
+
+hostname left-ro
+!
+enable secret 5 $1$mERr$3HhIgMGBA/9qNmgzccuxv0
+!
+username avo secret 5 $1$mERr$3HhIgMGBA/9qNmgzccuxv0
+!
+ip ssh version 2
+ip domain-name lab.org
+!
+interface Loopback0
+ description OSPF loopback
+ ip address 10.255.255.1 255.255.255.255
+!
+interface FastEthernet0/0
+ ip address 10.0.1.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ description left-to-middle
+ ip address 10.0.2.10 255.255.255.0
+ duplex auto
+ speed auto
+!
+router ospf 1
+ router-id 10.255.255.1
+ log-adjacency-changes
+ passive-interface FastEthernet0/0
+ passive-interface Loopback0
+ network 10.0.1.0 0.0.0.255 area 0
+ network 10.0.2.0 0.0.0.255 area 0
+ network 10.255.255.1 0.0.0.0 area 0
+!
+line con 0
+ password 123
+ logging synchronous
+!
+line aux 0
+!
+line vty 0 4
+ logging synchronous
+ login local
+ transport input ssh
+!
+end

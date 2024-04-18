@@ -1,0 +1,38 @@
+! Switch default template
+hostname left-l2-sw3 
+enable secret 123
+username avo secret 123  
+ip domain-name lab.org
+crypto key generate rsa
+2048
+ip ssh version 2  
+line con 0  
+    password 123
+    logging synchronous
+line vty 0 4
+    login local
+    transport input ssh 
+    logging synchronous
+
+vlan 999
+    name unused-ports
+vlan 998
+    name custom-native-vlan
+vlan 10
+    name prod
+vlan 20
+    name prod2
+!
+interface range fa0/1 - 23
+    switchport mode access
+    switchport access vlan 999
+    switchport nonegotiate
+    switchport port-security maximum 3
+    switchport port-security violation restrict
+    switchport port-security
+interface fa0/24
+    switchport mode trunk
+    switchport nonegotiate
+    switchport trunk allowed vlan 10,20
+    switchport trunk native vlan 998
+    switchport trunk encapsulation dot1q
