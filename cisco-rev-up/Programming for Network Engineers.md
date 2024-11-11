@@ -1779,19 +1779,381 @@ These errors are typically the **most difficult to debug because there are no er
 For example a python program that runs "show running-config" on Cisco router, but has a typo in the command, "show runnin-config". This will not raise an error in python. 
 To correct this issue, you need to inspect the variable with the typo-command and see that there is an issue with the command. This is a relatively easy error to locate and correct, but semantic errors can be much more difficult to find and debug.
 
-
-
-
-
 ### Managing Exceptions
+
+Managing exceptions allows you to handle errors and perform a meaningful action, such as display a message to a user or log a message. To handle exceptions, you can use the “**try-except”** block or the “**try-except-finally”** block.
+
+![image-20241110223527930](assets/image-20241110223527930.png)
+
+#### try-except-else
+
+* Try - Code to try
+* Except - Code to run if exception is raised
+* Else - Code to run if no exception is raised
+
+If there is an exception, it checks each except statement, and if one matches, it executes the code below it. You can have one or more except sections. 
+
+#### try-except-else-finally
+
+* Try - Code to try
+* Except as e: - Code to run if exception is raised. 
+* else - code to run if no exception is rasied
+* finally - Code that always run at the end after exceptions. 
+
+try-except-else section works the same as above. 
+
+The “**finally**” section is **always run,** whether the try is successful or not, and is used for code cleanup such as closing a file before the code exits. This code will run **even if you issue the command sys.exit() i**n one of the except sections or the else section.
+
+Using except with **no ExceptionType is not recommended** because it catches all exceptions, not a specific exception. this is known as a **bare except.**  Using except by itself is acceptable after performing specific checks **as a catch-all at the end,** but it should not be used by itself.
+
+The **recommended way to perform exception handling is to check for specific ExceptionTypes** first. The example checks for a KeyError. A KeyError is raised when a key is not found in a dictionary and it is accomplished with the following command: `except KeyError:` 
+
+```python
+deviceip = {"R1": "192.168.5.5", "R2": "192.168.20.2", "R3":"192.168.50.2"}
+try:
+    deviceip["R4"]
+except KeyError:
+    print("Router does not exist")
+```
+
+#### Exception objects
+
+Exception objects are **the information that follows the ExceptionType and explains the error.** If you would like to keep the exception object to print or send to a log file, you can use the following command:
+
+`except <ExceptionType> as <variable>:`
+
+The "as <variable>" will take the exception object and save it in the variable that you define.
+
+```python
+x = 1 
+y = 0
+try:
+    z = x / y
+except ZeroDivisionError as e:
+    print (e)
+
+# Output if run from CLI: 
+# $python script.py
+# $division by zero
+```
+
+#### Finally
+
+Executes whether the try statement is successful or not. It will **ALWAYS** excecute.  To use a finally statement effectively, you need to logically plan your exception handling block to have something you always want to happen when the block is done running. This is not always necessary but can be a useful tool. 
+
+**Example of code written to take advantage of finally always running**
+
+```python
+import requests
+
+ip = 'https://10.254.0.1:443/'
+dn = '/restconf/data/cisco:native/interface/'
+auth = ('cisco', 'cisco')
+dash = '-' * 80  # 80 bindestreker etter kvarandre. 
+
+try:
+    response = requests.get(ip + dn, headers=headers, auth=auth, verify=False)
+    response.raise_for_status()  #Built-in from requests, raises error if http status-code is not 200. 
+except requests.HTTPError as e:
+    filename = 'errors.log'
+    data = e
+else:
+    filename = 'success.log'
+    data = response.content
+finally:
+    with open(filename, 'a') as f:
+        print(data, dash, sep='\n', file=f)
+
+'''
+Dersom vi får ein login-error (https-status ikkje er 200), so blir error-message lagra i variabelen data. 
+variabelen filename blir satt til errors.log
+Dersom https-status code er 200, so blir filename satt til success.log, og content blir lagra til variabelen data. 
+Finally oppretter oppretter ei fil og skriver til den,  basert på innhaldet i variablane filename og data. 
+'''
+```
+
+
+
+### Manage exceptions with the try-except structure (LAB)
+
+![image-20241111183323923](assets/image-20241111183323923.png)
+
+> [!TIP]
+>
+> This code is only designed to handle one authentication failure. If the user fails to authenticate again, the script will error out by raising the **netmiko.ssh_exception.NetmikoAuthenticationException**. Handling exceptions in a while loop enables you to give the user a specified number of attempts. Upon failing various times, you could handle the exception by printing a custom error message or by using **sys.exit('error message')**.
+
+
 
 ### Assertions
 
+Assertions are statements in your program used for debugging unrecoverable errors. **The assert statement is evaluated to see if the condition is true or false.** Unlike exceptions which display errors during code execution, assertions are used as a debugging aid.
 
+![image-20241111183759868](assets/image-20241111183759868.png)
+
+Python has a built-in assert statement to test a condition and you place that assert statement in the area of the code you want to test. 
+
+> [!IMPORTANT]
+>
+> The condition is a Boolean expression that is tested. **If the condition is true, the program continues, but if the condition is false, assert stops the program** and returns an AssertionError.
+> ```python
+>assert <condition>,<error message>
+>```
+
+
+The code shown in the example makes an HTTP request to a CSR router via RESTCONF. The assert statement condition states that the status code of the response must be 200, otherwise an AssertionError will be raised.
+
+
+```python
+import requests
+
+ip = 'https://10.254.0.1:443/'
+dn = '/restconf/data/cisco:native/interface/'
+auth = ('cisco', 'cisco')
+response = requests.get(ip + dn, headers=headers, auth=auth, verify=False)
+
+assertion_message = f'{response.status_code} {response.reason}'
+assert response.status_code == 200, assertion_message
+print (response.content)
+```
 
 ## Examinig debugging basics and assertions
 
+### Intro and goals
+
+* Have a good understanding of the process you should follow when needing to debug your code 
+* *The Python logging module, and some simple Python functions such as print, break, and assert that can be used for code debugging.
+
+### Code debugging process
+
+The process of debugging code includes the steps used to identify an issue and solve it as quickly as possible. This **process should be repeatable and consistently used** each time you need to debug a problem.
+
+There are four basic steps to follow: 
+
+* Identify the error, 
+* Isolate the source, 
+* Identify the cause, 
+* Fix and validate.
+
+![image-20241111185200708](assets/image-20241111185200708.png)
+
+#### Identify the error
+
+Identifying a debugging issue is about understanding how the code should work and how the results should look. If the problem does not crash the program, The only way to know the script is incorrect is to understand what the output should be.
+
+The best way to determine these types of issues **(semantic)** is to **build a test where you input known information and confirm that the output is correct,** then check that the code is performing as it should.
+
+#### Identify the source
+
+Identify the location in the code where the issue is occurring.  There are different ways to determine the source of the error. If it is a syntax error, the line number along with the code at that line will be listed in the syntax error output.
+
+The output when you raise a runtime error has a few components. 
+
+* First line of the error message shows the **filename** of the script that was running when the error was raised and the **line number** on which the error occurred
+* Second error line **displays the code** on that line so you can quickly inspect it to check for any errors.
+* Sometimes, the error message will also display a list of modules called
+* The last line gives you the **errorType**, such as keyerror, indentationerror, etc. 
+
+#### Identify the cause
+
+Identify what is wrong and causing the issue.
+
+if a function is returning incorrect values, it might be the formula in the function is wrong or because it is taking the wrong input into the function.
+
+#### Fix and Validate
+
+Analyze how to correct the issue and validate that the fix has worked.
+
+If there are multiple possible causes for an issue, only try one fix at a time and document each possible solution with the result. if your issue is not resolved, set the code back to the way it was before trying the next possible solution.
+
+### Python debugging functions
+
+The Python commands of **print, assert, break, and exit** are four functions you can use in your code to give you basic information for debugging.
+
+![image-20241111190208874](assets/image-20241111190208874.png)
+
+#### Print() 
+
+![image-20241111190232077](assets/image-20241111190232077.png)
+
+The **print()** statement is the simplest way to debug your code.
+
+![image-20241111190547034](assets/image-20241111190547034.png)
+
+#### Assert()
+
+Instead of using a print() statement, you can use an **assert statement.** An assert statement will stop the program and raise an AssertionError when its statement is False. This allows you to check for specific conditions in your code or to check for validation. 
+
+```python
+assert 'Invalid input detected' not in output, 'Invalid Command'
+# Evals to False if "invalid input dettected" is in output. 
+```
+
+#### Break
+
+![image-20241111190943187](assets/image-20241111190943187.png)
+
+The **break** statement is used in loops to exit a loop before Python would normally exit the loop. The example above break and exit the loop if it fails to get a ping respons more than 10 times. 
+
+> [!NOTE]
+>
+> In Cisco tests, this is the answer to.  Function that exit a loop if condition is meat. 
+
+Note that when the break statement exits out of the loop, the rest of your program will continue to run, so in this example, failing to ping the server should not be a critical failure that will cause the rest of the script to fail.
+
+#### sys.exit()
+
+![image-20241111191251005](assets/image-20241111191251005.png)
+
+The function **sys.exit()** can be used anywhere in your code, and will completely exit out of the program.
+
+This technique is useful if you want to end your program if a condition is met.
+
+In the example above, the code behaves just like the "Using break for debugging" example, but instead of using a break statement, which just exits the loop, you use the function sys.exit(), which completely stops and exits the program.
+
+#### Logging
+
+When using print() or assert statements, your output can become very congested, making it hard to determine a debugging output from a normal program output.
+
+Python has a **built-in module named logging** that is enables you to create a log file with differing levels of granularity.
+
+![image-20241111191453220](assets/image-20241111191453220.png)
+
+Using the logging module allows you to save different types of entries to a log file to review at any time, allowing you to see the behavior of your output over time.
+
+Once imported, you will set up the basic config. 
+
+* **Filename** you want the information saved to
+* **logging level.**
+  * INFO
+  * Debug, 
+  * Critical, 
+  * Error, 
+  * Warning, 
+  * Notset
+
+Optional stuff in the example above is: 
+
+* **Format** - The value of format will first write the 
+  * **date and time as configured by datefmt,** 
+  * a new line character, 
+  * the logging level, 
+  * The log message and another new line character 
+  * A line of dashes to separate the log entries.
+* **datefmt** -The date format uses the asctime special characters. 
+  * **%x** is the date, 
+  * **%X** is the time 
+  * **%Z** is the time zone.
+
+### Debuggers
+
+Most all IDEs have a debugger integrated into them. These built-in debuggers allow developers to run their code s**tep by step, set breakpoints, watch variable values change, and change those values.** They will also give developers e**xception information and break at the point the exception was detected.**
+
+To debug your code with the debugger in VS Code, select **Run > Start Debugging**.
+
+* **Breakpoints** - stop the execution of your code at a certain point to start debugging, At that point, you can check the variables and their values.
+* **step by step** - option to continue executing your code, or you can step one line at a time through your code. Stepping one line at a time allows you to see values change and functions being called.
+
+The watch area allows you to add the variables you are most interested in watching. That way you don’t have to keep track of all the variables.
+
+The call stack pane allows you to determine from which method an error occurred.
+
+https://code.visualstudio.com/docs/python/debugging
+
 ## Introducing python pdb
 
+### Intro and goals
 
+* Have a good understanding of the Python debugger's capability, 
+* The different ways to run pdb, 
+* The commands to effectively analyze and troubleshoot your Python scripts. 
+
+## Python debugger
+
+Python has a built-in debugger called Pdb.
+
+Pdb is very useful because it can be executed from the **command line,** within the **interpreter**, or **within a program.** You get the same functionality no matter which way it's used.
+
+Pdb allows you to 
+
+* run the code line by line, 
+* set breakpoints, 
+* inspect variable values, 
+* Alter the execution of your program without changing the source code. 
+
+![image-20241111193120523](assets/image-20241111193120523.png)
+
+#### Invoke as a script
+
+ invoke the debugger when you run your script from the command line. 
+
+```python
+C:\PRNE> python -m pdb <name of script>
+```
+
+The **-m pdb** before the file name opens the debugger and waits for a command to execute on the specified script.
+
+#### Invoke in interpreter (interactive shell)
+
+Once you enter the interactive shell, you need to import the Pdb module and run the method with the following command. 
+
+```python
+>>> import pdb
+>>> pdb.run ('script name')
+```
+
+This method opens Pdb and waits for a command to execute on the script you specified.
+
+#### Invoke in Code
+
+Invoke Pdb  inside your script by using the **function breakpoint()** Place breakpoint() in the location of your code where you **want the execution to stop;** once the execution stops, Pdb will open.
+
+> [!NOTE]
+>
+> In Python 3.7 and greater, breakpoint() is used to stop the execution of the code and open Pdb; you do not need to import Pdb. **Prior to Python 3.7 you needed to import Pdb**, use the **pdb.set_trace() f**unction to stop the execution of the code, and open Pdb. 
+>
+> When breakpoint() is not available, usually you will import Pdb and use the set_trace() function on the same line like this: import Pdb, pdb.set_trace().
+
+To see the complete documentation on Pdb, type `help pdb` when Pdb is open. 
+
+To see the commands available in Pdb just type `help` when Pdb is open. 
+
+![image-20241111193840083](assets/image-20241111193840083.png)
+
+To get information about a specific command such as the syntax, arguments used, and a definition of what it accomplishes, type the specific command as an argument of the help command. `(Pdb) help break`
+
+#### Breakpoints()
+
+![image-20241111194000164](assets/image-20241111194000164.png)
+
+
+
+## Pdb Commands
+
+Once you have inserted the breakpoint() function in your code, when you run your code, the execution will halt when the break point is reached and you enter the pdb shell.
+
+There are many commands available to you at the (Pdb) prompt. To use these commands, you can type the whole command or just the first letter.
+
+![image-20241111194133032](assets/image-20241111194133032.png)
+
+Some of the most common pdb commands are: 
+
+1. **c – Continue:** Executes the program normally until it hits another breakpoint. If there is no breakpoint set, the script stops at the end of the program displaying the output.
+2. **s – Step Forward:** Executes one line of code at a time. At the end of each line of code executed, you are presented with the (Pdb) prompt waiting for another command. **This command steps into a function** which allows you to debug not only the lines of code in your main program, but each line of code in the function.
+3. **n – Next:** Executes one line of code at a time. At the end of each line of code executed, you are presented with the (Pdb) prompt waiting for another command. Unlike step, **next does not step into a function.** This means when you come to a function in your code, the code inside the function will execute, but you will not be able to debug it.
+4. **b – Breakpoint:** Is a point in your code where you want to stop executing. You would normally place breakpoints in a location above where you want to start debugging. You can check variables at that point in the code or start stepping through the code line by line. You can use the command clear to remove all breakpoints or clear <number> to remove a specific breakpoint.
+5. **p/pp – Print/Pretty Print:** Allows you to print information such as the value of a variable. If you want to know the value of variable x, you can use the **command p x or print x at the point where you want to check the value.**
+6. **! – Execute Statement:** Allows you to execute any Python statement at a specific point in the code. For example, if you wanted to **change the value of a variable, you could use !x = 10.** This would set the variable x to a value of 10 at that point in the code.
+7. **l – List source:** Prints the source code at a specific execution point. The current line appears in the middle of the printout with an arrow that points to it. There are three lines of code printed before and after the current line.
+8. **w – Print Stack:** Displays the entire program at a specific point.
+9. **q – quit:** Quits pdb. You can also use crtl +d or exit() to quit.
+
+
+
+### Use the Python debugger (LAB)
+
+Only writing down tips and trics mentioned in the lab. 
+
+> [!TIP]
+>
+> The PEP-8 style guide dictates that variables that are constant (or always have the same value) in your script or module can be named with all uppercase characters to increase readability.
 
